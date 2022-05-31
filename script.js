@@ -11,7 +11,7 @@ function addBook(){
   let bookTitle = titleIn.value;
   let bookAuthor = authorIn.value;
   if(bookTitle != "" || bookAuthor != ""){
-    
+
   // create and append all necessary elements of the book list to the div with a book-list class
     const book = document.createElement('div');
     book.innerHTML = `
@@ -31,6 +31,20 @@ function addBook(){
     book.appendChild(divider);
     bookList.appendChild(book);
 
+    // create and object to store book data to push into the collection array and then store it in localStorage
+    let books= new Object();
+    books.title = bookTitle;
+    books.author = bookAuthor;
+    collection.push(books);
+    localStorage.setItem('Book List',JSON.stringify(collection));
+    titleIn.value = "";
+    authorIn.value = "";
     
   }
 }
+
+// An eventListener for the Add button
+form.addEventListener('submit',(e)=> {
+  e.preventDefault();
+  addBook();
+})
