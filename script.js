@@ -2,16 +2,24 @@ const form = document.querySelector('#form');
 const titleIn = document.querySelector('.title');
 const authorIn = document.querySelector('.author');
 
-// intialize an array to fetch books from localStorage. If no books are available should return an empty string.
-let collection = JSON.parse(localStorage.getItem('Book List'))  || [];
+// intialize array to get books from localStorage.If no books return an empty string.
+const collection = JSON.parse(localStorage.getItem('Book List')) || [];
+function removeBook(bookTitle, bookAuthor, book) {
+  book.remove();
+  for (let i = 0; i < collection.length; i += 1) {
+    if (collection[i].title === bookTitle && collection[i].author === bookAuthor) {
+      collection.splice(i, 1);
+      localStorage.setItem('Book List', JSON.stringify(collection));
+    }
+  }
+}
 
-// create a function to add books to the collection array and display the books also.
-function addBook(){
+// create func to add books to the collection and display the books.
+function addBook() {
   const bookList = document.querySelector('.book-list');
-  let bookTitle = titleIn.value;
-  let bookAuthor = authorIn.value;
-  if(bookTitle != "" || bookAuthor != ""){
-
+  const bookTitle = titleIn.value;
+  const bookAuthor = authorIn.value;
+  if (bookTitle !== '' || bookAuthor !== '') {
   // create and append all necessary elements of the book list to the div with a book-list class
     const book = document.createElement('div');
     book.innerHTML = `
@@ -31,36 +39,23 @@ function addBook(){
     book.appendChild(divider);
     bookList.appendChild(book);
 
-    rvmBtn.addEventListener('click',()=>{
-      removeBook(bookTitle,bookAuthor,book);
-    })
+    rvmBtn.addEventListener('click', () => {
+      removeBook(bookTitle, bookAuthor, book);
+    });
 
-    // create and object to store book data to push into the collection array and then store it in localStorage
-    let books= new Object();
+    // create object to store book data and then store it in localStorage
+    const books = {};
     books.title = bookTitle;
     books.author = bookAuthor;
     collection.push(books);
-    localStorage.setItem('Book List',JSON.stringify(collection));
-    
-    titleIn.value = "";
-    authorIn.value = "";
-    
+    localStorage.setItem('Book List', JSON.stringify(collection));
+    titleIn.value = '';
+    authorIn.value = '';
   }
 }
 
-// create a function to remove the books from the collection array using values from addBook() passed into the three parameters 
-function removeBook (bookTitle,bookAuthor,book){
-  book.remove();
-  for (let i = 0; i < collection.length; i += 1) {
-    if (collection[i].title === bookTitle && collection[i].author === bookAuthor) {
-      collection.splice(i, 1);
-      localStorage.setItem('Book List', JSON.stringify(collection));
-    }
-}
-}
-
 // An eventListener for the Add button
-form.addEventListener('submit',(e)=> {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
   addBook();
-})
+});
