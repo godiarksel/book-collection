@@ -31,16 +31,32 @@ function addBook(){
     book.appendChild(divider);
     bookList.appendChild(book);
 
+    rvmBtn.addEventListener('click',()=>{
+      removeBook(bookTitle,bookAuthor,book);
+    })
+
     // create and object to store book data to push into the collection array and then store it in localStorage
     let books= new Object();
     books.title = bookTitle;
     books.author = bookAuthor;
     collection.push(books);
     localStorage.setItem('Book List',JSON.stringify(collection));
+    
     titleIn.value = "";
     authorIn.value = "";
     
   }
+}
+
+// create a function to remove the books from the collection array using values from addBook() passed into the three parameters 
+function removeBook (bookTitle,bookAuthor,book){
+  book.remove();
+  for (let i = 0; i < collection.length; i += 1) {
+    if (collection[i].title === bookTitle && collection[i].author === bookAuthor) {
+      collection.splice(i, 1);
+      localStorage.setItem('Book List', JSON.stringify(collection));
+    }
+}
 }
 
 // An eventListener for the Add button
