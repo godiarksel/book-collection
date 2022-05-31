@@ -2,39 +2,18 @@
 
 # Project Name
 
-> Description the project.
+> Awesome Books
 
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- HTML
+- Javascript
+- CSS
 
 ## Live Demo (if available)
 
 [Live Demo Link](https://livedemo.com)
-
-
-## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
 
 
 
@@ -46,27 +25,29 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
-👤 **Author2**
+## Authors
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+👤 **Author1**
 
-## 🤝 Contributing
+- GitHub: [@godiarksel](https://github.com/githubhandle)
+- Twitter: [@godiarksel](https://twitter.com/twitterhandle)
+- LinkedIn: [Godfrey Mwandembo](https://linkedin.com/in/godfrey-mwandembo-045667127/)
 
-Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+##  Contributions
 
-## Show your support
-
-Give a ⭐️ if you like this project!
+1. nelson
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Fellow Micronauts
+- My Coding Partner
+- Myself
+
+## Live Preview
+
+
+
 
 ## 📝 License
 
