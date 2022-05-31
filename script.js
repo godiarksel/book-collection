@@ -59,3 +59,9 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   addBook();
 });
+
+//please comment the code below as it does not work
+document .addEventListener('DOMContentLoaded', () =>{
+    
+  document.getElementById('submit').addEventListener('click', addBook);
+});
