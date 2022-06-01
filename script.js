@@ -13,7 +13,7 @@ class Book {
     const bookList = document.querySelector('.book-list');
     if (this.title !== '' || this.author !== '') {
       const book = document.createElement('div');
-      book.classList('oneBook');
+      book.classList.add('oneBook');
       book.innerHTML = `
       <p>
        "${this.title}" by ${this.author}
