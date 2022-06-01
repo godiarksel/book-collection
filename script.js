@@ -13,21 +13,16 @@ class Book {
     const bookList = document.querySelector('.book-list');
     if (this.title !== '' || this.author !== '') {
       const book = document.createElement('div');
+      book.classList('oneBook');
       book.innerHTML = `
-      <h2>
-        ${this.title}
-      </h2>
       <p>
-        ${this.author}
+       "${this.title}" by ${this.author}
       </p>
       `;
       const rvmBtn = document.createElement('button');
       rvmBtn.type = 'button';
       rvmBtn.innerText = 'Remove';
       book.appendChild(rvmBtn);
-  
-      const divider = document.createElement('hr');
-      book.appendChild(divider);
       bookList.appendChild(book);
   
       rvmBtn.addEventListener('click', () => {
