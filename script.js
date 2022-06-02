@@ -6,10 +6,10 @@ const collection = JSON.parse(localStorage.getItem('Book List')) || [];
 class Book {
   constructor(title, author) {
     this.title = title;
-    this.author =  author;
+    this.author = author;
   }
-  
-   addBook() {
+
+  addBook() {
     const bookList = document.querySelector('.book-list');
     if (this.title !== '' || this.author !== '') {
       const book = document.createElement('div');
@@ -24,14 +24,13 @@ class Book {
       rvmBtn.innerText = 'Remove';
       book.appendChild(rvmBtn);
       bookList.appendChild(book);
-  
       rvmBtn.addEventListener('click', () => {
-          book.remove();
-          for (let i = 0; i < collection.length; i += 1) {
-            if (collection[i].title === this.title && collection[i].author === this.author) {
-              collection.splice(i, 1);
-              localStorage.setItem('Book List', JSON.stringify(collection));
-            }
+        book.remove();
+        for (let i = 0; i < collection.length; i += 1) {
+          if (collection[i].title === this.title && collection[i].author === this.author) {
+            collection.splice(i, 1);
+            localStorage.setItem('Book List', JSON.stringify(collection));
+          }
         }
       });
       const myBooks = {};
@@ -48,7 +47,7 @@ class Book {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  let oneBook = new Book(titleIn.value, authorIn.value);
+  const oneBook = new Book(titleIn.value, authorIn.value);
   oneBook.addBook();
 });
 
