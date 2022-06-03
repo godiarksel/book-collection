@@ -38,7 +38,6 @@ class Book {
       myBooks.author = this.author;
       collection.push(myBooks);
       localStorage.setItem('Book List', JSON.stringify(collection));
-      // localStorage.clear();
       titleIn.value = '';
       authorIn.value = '';
     }
@@ -50,5 +49,3 @@ form.addEventListener('submit', (e) => {
   const oneBook = new Book(titleIn.value, authorIn.value);
   oneBook.addBook();
 });
-
-// console.log(oneBook);
