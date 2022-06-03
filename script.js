@@ -1,61 +1,78 @@
-const form = document.querySelector('#form');
-const titleIn = document.querySelector('.title');
-const authorIn = document.querySelector('.author');
+const form = document.querySelector('form');
+const bookList = document.querySelector('.book-list');
 
-// intialize array to get books from localStorage.If no books return an empty string.
-const collection = JSON.parse(localStorage.getItem('Book List')) || [];
-function removeBook(bookTitle, bookAuthor, book) {
-  book.remove();
-  for (let i = 0; i < collection.length; i += 1) {
-    if (collection[i].title === bookTitle && collection[i].author === bookAuthor) {
-      collection.splice(i, 1);
-      localStorage.setItem('Book List', JSON.stringify(collection));
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+    this.id = Math.random();
+  }
+}
+
+function getBooks() {
+  let bookCollection;
+  if (localStorage.getItem('bookApp') === null) {
+    bookCollection = [];
+  } else {
+    bookCollection = JSON.parse(localStorage.getItem('bookApp'));
+  }
+  return bookCollection;
+}
+
+function addBookToLocalStorage(book) {
+  const bookCollection = getBooks();
+  bookCollection.push(book);
+  localStorage.setItem('bookApp', JSON.stringify(bookCollection));
+}
+
+function removeBook(id) {
+  const bookCollection = getBooks();
+  bookCollection.forEach((book, index) => {
+    if (book.id === id) {
+      bookCollection.splice(index, 1);
     }
-  }
+    localStorage.setItem('bookApp', JSON.stringify(bookCollection));
+  });
 }
 
-// create func to add books to the collection and display the books.
-function addBook() {
-  const bookList = document.querySelector('.book-list');
-  const bookTitle = titleIn.value;
-  const bookAuthor = authorIn.value;
-  if (bookTitle !== '' || bookAuthor !== '') {
-  // create and append all necessary elements of the book list to the div with a book-list class
-    const book = document.createElement('div');
-    book.innerHTML = `
-    <h2>
-      ${bookTitle}
-    </h2>
-    <p>
-      ${bookAuthor}
-    </p>
-    `;
-    const rvmBtn = document.createElement('button');
-    rvmBtn.type = 'button';
-    rvmBtn.innerText = 'Remove';
-    book.appendChild(rvmBtn);
-
-    const divider = document.createElement('hr');
-    book.appendChild(divider);
-    bookList.appendChild(book);
-
-    rvmBtn.addEventListener('click', () => {
-      removeBook(bookTitle, bookAuthor, book);
-    });
-
-    // create object to store book data and then store it in localStorage
-    const books = {};
-    books.title = bookTitle;
-    books.author = bookAuthor;
-    collection.push(books);
-    localStorage.setItem('Book List', JSON.stringify(collection));
-    titleIn.value = '';
-    authorIn.value = '';
-  }
+function addBookToList(book) {
+  const newBook = document.createElement('div');
+  newBook.classList.add('oneBook');
+  newBook.innerHTML += `
+  <span hidden>${book.id}</span>
+  <p>"${book.title}" by ${book.author}</p>
+  <button type="button" class="remove">Remove</button>`;
+  bookList.appendChild(newBook);
 }
 
-// An eventListener for the Add button
+function displayBooks() {
+  const books = getBooks();
+  books.forEach((book) => {
+    addBookToList(book);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', displayBooks);
+
+bookList.addEventListener('click', (e) => {
+  if (e.target.classList.contains('remove')) {
+    const currentBook = e.target.closest('.oneBook');
+    currentBook.remove();
+    const id = currentBook.querySelector('span').textContent;
+    removeBook(Number(id));
+  }
+});
+
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  addBook();
+  const titleInput = document.querySelector('.title');
+  const authorInput = document.querySelector('.author');
+  if (titleInput.value.length > 0 && authorInput.value.length > 0) {
+    const newBook = new Book(titleInput.value, authorInput.value);
+    addBookToList(newBook);
+    addBookToLocalStorage(newBook);
+    titleInput.value = '';
+    authorInput.value = '';
+    titleInput.focus();
+  }
 });
