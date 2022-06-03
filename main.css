@@ -1,6 +1,6 @@
-* ,
+*,
 *::before,
-*::after{
+*::after {
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
@@ -25,7 +25,7 @@
   min-width: 400px;
 }
 
-.book-list :nth-child(even){
+.book-list :nth-child(even) {
   background-color: #f3f3f3;
 }
 
@@ -36,6 +36,16 @@
   padding: 10px 6px;
   background-color: #f3f3f3;
   font-weight: 600;
+}
+
+.form button {
+  background-color: white;
+  font-weight: 600;
+  padding: 5px 15px;
+  box-shadow: 2px 4px;
+  font-size: 12px;
+  margin-top: -5px;
+  margin-left: 118px;
 }
 
 .oneBook button {
@@ -87,16 +97,6 @@ hr {
   opacity: 1;
 }
 
-.form button {
-  background-color: white;
-  font-weight: 600;
-  padding: 5px 15px;
-  box-shadow: 2px 4px;
-  font-size: 12px;
-  margin-top: -5px;
-  margin-left: 118px;
-}
-
 .form button:hover {
   background-color: #000;
   color: white;
@@ -127,11 +127,11 @@ hr {
 }
 
 .nav a:active {
-  color: blue;  
+  color: blue;
 }
 
 .nav a:hover {
-  color: grey;  
+  color: grey;
 }
 
 .nav__links {
@@ -166,10 +166,10 @@ hr {
 }
 
 .footer {
-  position:absolute;
-  bottom:0;
+  position: absolute;
+  bottom: 0;
   width: 98%;
-  height:60px;
+  height: 60px;
   border: 3px solid #000;
   border-radius: 4px;
   margin: 12px;

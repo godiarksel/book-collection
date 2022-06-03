@@ -7,7 +7,7 @@ const listLink = document.querySelector('#nav__links__list');
 const addLink = document.querySelector('#nav__links__add');
 const contaLink = document.querySelector('#nav__links__contacts');
 
-let date = new Date();
+const date = new Date();
 dateTime.innerHTML = date;
 
 class Book {
