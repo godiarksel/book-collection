@@ -1,4 +1,3 @@
-
 const form = document.querySelector('form');
 const bookList = document.querySelector('.book-list');
 
@@ -37,13 +36,13 @@ function removeBook(id) {
 }
 
 function addBookToList(book) {
-    const newBook = document.createElement('div');
-    newBook.classList.add('oneBook');
-    newBook.innerHTML += `
-    <span hidden>${book.id}</span>
-    <p>"${book.title}" by ${book.author}</p>
-    <button type="button" class="remove">Remove</button>`;
-    bookList.appendChild(newBook);
+  const newBook = document.createElement('div');
+  newBook.classList.add('oneBook');
+  newBook.innerHTML += `
+  <span hidden>${book.id}</span>
+  <p>"${book.title}" by ${book.author}</p>
+  <button type="button" class="remove">Remove</button>`;
+  bookList.appendChild(newBook);
 }
 
 function displayBooks() {
