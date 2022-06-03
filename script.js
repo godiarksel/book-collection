@@ -1,5 +1,9 @@
 const form = document.querySelector('form');
 const bookList = document.querySelector('.book-list');
+const dateTime = document.querySelector('#date-time');
+
+let date = new Date();
+dateTime.innerHTML = date;
 
 class Book {
   constructor(title, author) {
@@ -40,7 +44,7 @@ function addBookToList(book) {
   newBook.classList.add('oneBook');
   newBook.innerHTML += `
   <span hidden>${book.id}</span>
-  <p>"${book.title}" by ${book.author}</p>
+  <tr>"${book.title}" by ${book.author}</tr>
   <button type="button" class="remove">Remove</button>`;
   bookList.appendChild(newBook);
 }
