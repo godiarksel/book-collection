@@ -21,8 +21,9 @@
   border: 2px solid #000;
   border-radius: 24px;
   border-collapse: collapse;
-  margin: 25px auto;
+  margin: 25px auto 350px auto;
   min-width: 400px;
+
 }
 
 .oneBook {
@@ -60,8 +61,8 @@ hr {
   max-width: 8%;
 }
 
-#form {
-  display: flex;
+.form {
+  display: none;
   flex-direction: column;
   max-width: 40%;
   justify-content: center;
@@ -69,7 +70,7 @@ hr {
   margin: auto;
 }
 
-#form h2 {
+.form h2 {
   font-size: 18px;
   margin: 12px;
 }
@@ -86,7 +87,7 @@ hr {
   opacity: 1;
 }
 
-#form button {
+.form button {
   background-color: white;
   font-weight: 600;
   padding: 5px 15px;
@@ -96,12 +97,12 @@ hr {
   margin-left: 118px;
 }
 
-#form button:hover {
+.form button:hover {
   background-color: #000;
   color: white;
 }
 
-#form button:active {
+.form button:active {
   background-color: #000;
   color: white;
 }
@@ -145,3 +146,37 @@ hr {
   text-align: right;
 }
 
+.contacts {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px;
+  margin: 18px;
+}
+
+.contacts > * {
+  margin: 12px;
+}
+
+.contacts ul > li {
+  margin: 10px;
+}
+
+.footer {
+  border: 3px solid #000;
+  border-radius: 4px;
+  margin: 12px;
+  padding: 12px;
+  font-weight: 600;
+}
+
+.disable {
+  display: none;
+}
+
+.enable {
+  display: flex;
+}
