@@ -1,8 +1,10 @@
-* {
+*::before,
+*::after {
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
 }
 
 .book {
@@ -22,16 +24,27 @@
   min-width: 400px;
 }
 
+.book-list :nth-child(even) {
+  background-color: #f3f3f3;
+}
+
 .oneBook {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 6px;
   background-color: #f3f3f3;
+  font-weight: 600;
 }
 
-.oneBook p {
+.form button {
+  background-color: white;
   font-weight: 600;
+  padding: 5px 15px;
+  box-shadow: 2px 4px;
+  font-size: 12px;
+  margin-top: -5px;
+  margin-left: 118px;
 }
 
 .oneBook button {
@@ -57,8 +70,8 @@ hr {
   max-width: 8%;
 }
 
-#form {
-  display: flex;
+.form {
+  display: none;
   flex-direction: column;
   max-width: 40%;
   justify-content: center;
@@ -66,7 +79,7 @@ hr {
   margin: auto;
 }
 
-#form h2 {
+.form h2 {
   font-size: 18px;
   margin: 12px;
 }
@@ -83,22 +96,90 @@ hr {
   opacity: 1;
 }
 
-#form button {
-  background-color: white;
+.form button:hover {
+  background-color: #000;
+  color: white;
+}
+
+.form button:active {
+  background-color: #000;
+  color: white;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 3px solid #000;
+  border-radius: 4px;
+  margin: 10px;
+}
+
+.nav a {
+  padding: 12px;
+  margin: 12px;
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  color: #000;
   font-weight: 600;
-  padding: 5px 15px;
-  box-shadow: 2px 4px;
-  font-size: 12px;
-  margin-top: -5px;
-  margin-left: 118px;
 }
 
-#form button:hover {
-  background-color: #000;
-  color: white;
+.nav a:active {
+  color: blue;
 }
 
-#form button:active {
-  background-color: #000;
-  color: white;
+.nav a:hover {
+  color: grey;
+}
+
+.nav__links {
+  list-style-type: none;
+  display: flex;
+}
+
+.date-time {
+  font-weight: 600;
+  margin: 12px;
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.contacts {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px;
+  margin: 18px;
+}
+
+.contacts > * {
+  margin: 12px;
+}
+
+.contacts ul > li {
+  margin: 10px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 98%;
+  height: 60px;
+  border: 3px solid #000;
+  border-radius: 4px;
+  margin: 12px;
+  padding: 12px;
+  font-weight: 600;
+}
+
+.disable {
+  display: none;
+}
+
+.enable {
+  display: flex;
 }

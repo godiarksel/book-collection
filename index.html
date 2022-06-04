@@ -9,7 +9,18 @@
 </head>
 <body>
 <main>
+  <header>
+    <nav class="nav">
+      <a href="">Awesome Books</a>
+      <ul class="nav__links">
+        <li id="nav__links__list"> <a href="#">List</a></li>
+        <li id="nav__links__add"> <a href="#">Add new</a></li>
+        <li id="nav__links__contacts"> <a href="#">Contacts</a></li>
+      </ul>
+    </nav>
+  </header>
   <section class="book">
+    <p class="date-time" id='date-time'></p>
     <h1>
       All awesome books
     </h1>
@@ -17,13 +28,30 @@
 
     </table>
     <hr>
-    <form action="#" id="form">
+    <form action="#" id="form" class="form">
       <h2>Add a new book</h2>
       <input type="text" name="title" class="title" id="title" placeholder="Title" required /> <br>
       <input type="text" name="author" class="author" id="author" placeholder="Author" required /> <br>
       <button type="submit">Add</button>
     </form>
   </section>
+  <section class="contacts">
+    <h2>
+      Contact Information
+    </h2>
+    <p>
+      Do you have any questions or just want to say hello? <br>
+      You can reach out to us!
+    </p>
+    <ul>
+      <li>Our e-mail: awesomebooks@gmail.com</li>
+      <li>Our phone number: +254700000000</li>
+      <li>Our address: Old Town Rd P.O Box 123-00100 NRB</li>
+    </ul>
+  </section>
+  <footer class="footer">
+    Copyright  ...
+  </footer>
 </main>
 <script src="script.js"></script>
 </body>

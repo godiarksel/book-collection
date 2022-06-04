@@ -1,5 +1,14 @@
 const form = document.querySelector('form');
 const bookList = document.querySelector('.book-list');
+const dateTime = document.querySelector('#date-time');
+const contacts = document.querySelector('.contacts');
+const bookForm = document.querySelector('.form');
+const listLink = document.querySelector('#nav__links__list');
+const addLink = document.querySelector('#nav__links__add');
+const contaLink = document.querySelector('#nav__links__contacts');
+
+const date = new Date();
+dateTime.innerHTML = date;
 
 class Book {
   constructor(title, author) {
@@ -40,7 +49,7 @@ function addBookToList(book) {
   newBook.classList.add('oneBook');
   newBook.innerHTML += `
   <span hidden>${book.id}</span>
-  <p>"${book.title}" by ${book.author}</p>
+  <tr>"${book.title}" by ${book.author}</tr>
   <button type="button" class="remove">Remove</button>`;
   bookList.appendChild(newBook);
 }
@@ -75,4 +84,22 @@ form.addEventListener('submit', (e) => {
     authorInput.value = '';
     titleInput.focus();
   }
+});
+
+listLink.addEventListener('click', () => {
+  bookForm.classList.remove('enable');
+  contacts.classList.remove('enable');
+  bookList.classList.remove('disable');
+});
+
+addLink.addEventListener('click', () => {
+  bookList.classList.add('disable');
+  contacts.classList.remove('enable');
+  bookForm.classList.add('enable');
+});
+
+contaLink.addEventListener('click', () => {
+  bookList.classList.add('disable');
+  bookForm.classList.remove('enable');
+  contacts.classList.add('enable');
 });
